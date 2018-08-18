@@ -13,5 +13,5 @@ def factorial(n: 'int >= 0', history={}) -> int:
     return fact
 
 
-def sum_of_factorials(n: 'int >= 0', start: 'int >= 0'=0) -> int:
+def sum_of_factorials(n: 'int >= 0', start: 'int >= 0' = 0) -> int:
     return sum(map(factorial, range(min(n, start), max(n, start) + 1)))
