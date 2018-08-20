@@ -21,7 +21,7 @@ class Point:
             if self.x == other.x:
                 return True
             return False
-        raise TypeError(f'Expected Real or Point type, got {type(other)}')
+        raise TypeError(f'Expected Point type, got {other.__class__.__name}')
 
     def __hash__(self):
         return self.x ^ 1
@@ -33,7 +33,7 @@ class Point:
         return Point(self.x)
 
     def __neg__(self):
-        return Point(0-self.x)
+        return Point(0 - self.x)
 
     def __invert__(self):
         return Point(~self.x)
@@ -49,35 +49,40 @@ class Point:
             return Point(self.x + sop)
         if isinstance(sop, Point):
             return Point(self.x + sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __sub__(self, sop):
         if isinstance(sop, Real):
             return Point(self.x - sop)
         if isinstance(sop, Point):
             return Point(self.x - sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __mul__(self, sop):
         if isinstance(sop, Real):
             return Point(self.x * sop)
         if isinstance(sop, Point):
             return Point(self.x * sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __truediv__(self, sop):
         if isinstance(sop, Real):
             return Point(self.x / sop)
         if isinstance(sop, Point):
             return Point(self.x / sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __mod__(self, sop):
         if isinstance(sop, Real):
             return Point(self.x % sop)
         if isinstance(sop, Point):
             return Point(self.x % sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __divmod__(self, sop):
         if isinstance(sop, Real):
@@ -90,14 +95,16 @@ class Point:
             return Point(self.x << sop)
         if isinstance(self, Point):
             return Point(self.x << sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __rshift__(self, sop):
         if isinstance(self, Real):
             return Point(self.x >> sop)
         if isinstance(self, Point):
             return Point(self.x >> sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __bool__(self):
         if self.x == 0:
@@ -109,7 +116,8 @@ class Point:
             return Point(self.x ** sop)
         if isinstance(sop, Point):
             return Point(self.x ** sop.x)
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __iadd__(self, sop):
         return self.__add__(sop)
@@ -171,7 +179,8 @@ class Point:
             if self.x > sop.x:
                 return True
             return False
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
 
     def __ge__(self, sop):
         if isinstance(sop, Real):
@@ -182,5 +191,5 @@ class Point:
             if self >= sop:
                 return True
             return False
-        raise TypeError(f'Expected Real or Point type, got {sop.__class__.__name__}')
-
+        raise TypeError(
+            f'Expected Real or Point type, got {sop.__class__.__name__}')
